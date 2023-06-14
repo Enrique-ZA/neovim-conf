@@ -1,8 +1,12 @@
 vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>dd", vim.cmd.Ex) -- explorer
-vim.keymap.set({"n","i","v"}, "<C-s>", vim.cmd.w) -- save
-vim.keymap.set({"n","i","v"}, "<C-x>", vim.cmd.q) -- quit
+vim.keymap.set({"n","v"}, "<C-s>", vim.cmd.w) -- save
+vim.api.nvim_set_keymap('i', '<C-s>', '<Esc>:w<CR>', {noremap = true}) -- save and escape
 vim.keymap.set("i", "<S-a><S-a>", "<C-o>0") -- home
+vim.api.nvim_set_keymap('n', '<C-x>', ':wq<CR>', {noremap = true}) -- save and exit
+vim.api.nvim_set_keymap('i', '<C-x>', '<Esc>:wq<CR>', {noremap = true}) --save and exit
+vim.api.nvim_set_keymap('v', '<C-x>', ':wq<CR>', {noremap = true}) --save and exit
+vim.api.nvim_set_keymap('v', '<C-d>', 'y:call system("wl-copy", getreg(\"\"))<CR>', {noremap = true, silent = true})
 vim.keymap.set("i", "<S-f><S-f>", "<C-o>$") -- end
 vim.keymap.set("n", "<S-a><S-a>", "<Home>") -- home
 vim.keymap.set("n", "<S-f><S-f>", "<End>") -- end
@@ -14,8 +18,8 @@ vim.keymap.set({"n","v"}, "h", "<F17>") -- remap h to nothing for now
 vim.keymap.set({"n","v"}, "j", "h") -- remap left
 vim.keymap.set({"n","v"}, "l", "j") -- remap down
 vim.keymap.set({"n","v"}, ";", "l") -- remap right
-vim.keymap.set("i", "<C-c>", "<Esc>") -- esc
-vim.keymap.set("n", "<C-a>", "ggVG") -- select all normal
+vim.api.nvim_set_keymap("i", "<C-c>", "<Esc>:w<CR>", {noremap = true}) -- esc
+vim.api.nvim_set_keymap('n', '<C-a>', 'ggVG', {noremap = true})
 vim.keymap.set("i", "<C-a>", "<C-o>g<C-o>g<C-o>V<C-o>G") -- select all insert
 vim.keymap.set("i", "<PageUp>", "") --
 vim.keymap.set("i", "<PageDown>", "") --

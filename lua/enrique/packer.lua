@@ -31,6 +31,7 @@ return require('packer').startup(function(use)
             -- Snippets
             {'L3MON4D3/LuaSnip'},
             {'rafamadriz/friendly-snippets'},
+
         }
     }
 
@@ -58,5 +59,7 @@ return require('packer').startup(function(use)
         vim.cmd('colorscheme github_dark_dimmed')
     end
 })
+
+
 
 end)
