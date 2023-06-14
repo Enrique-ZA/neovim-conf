@@ -115,7 +115,7 @@ _G.packer_plugins = {
     url = "https://github.com/rafamadriz/friendly-snippets"
   },
   ["github-nvim-theme"] = {
-    config = { "\27LJ\2\n½\2\0\0\5\0\v\0\0156\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\6\0005\3\3\0005\4\4\0=\4\5\3=\3\a\2B\0\2\0016\0\b\0009\0\t\0'\2\n\0B\0\2\1K\0\1\0#colorscheme github_dark_dimmed\bcmd\bvim\foptions\1\0\0\vstyles\1\0\n\14functions\tbold\ntypes\tbold\rcomments\vitalic\14constants\tbold\fnumbers\tNONE\14operators\tbold\17conditionals\tbold\14variables\tbold\fstrings\tNONE\rkeywords\vitalic\1\0\1\16transparent\2\nsetup\17github-theme\frequire\0" },
+    config = { "\27LJ\2\n½\2\0\0\5\0\v\0\0156\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\6\0005\3\3\0005\4\4\0=\4\5\3=\3\a\2B\0\2\0016\0\b\0009\0\t\0'\2\n\0B\0\2\1K\0\1\0#colorscheme github_dark_dimmed\bcmd\bvim\foptions\1\0\0\vstyles\1\0\n\fstrings\tNONE\14functions\tbold\ntypes\tbold\rkeywords\vitalic\14constants\tbold\14variables\tbold\17conditionals\tbold\14operators\tbold\fnumbers\tNONE\rcomments\vitalic\1\0\1\16transparent\2\nsetup\17github-theme\frequire\0" },
     loaded = true,
     path = "/home/enrique/.local/share/nvim/site/pack/packer/start/github-nvim-theme",
     url = "https://github.com/projekt0n/github-nvim-theme"
@@ -169,18 +169,13 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/enrique/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
-  },
-  ["wl-clipboard.vim"] = {
-    loaded = true,
-    path = "/home/enrique/.local/share/nvim/site/pack/packer/start/wl-clipboard.vim",
-    url = "https://github.com/equalsraf/wl-clipboard.vim"
   }
 }
 
 time([[Defining packer_plugins]], false)
 -- Config for: github-nvim-theme
 time([[Config for github-nvim-theme]], true)
-try_loadstring("\27LJ\2\n½\2\0\0\5\0\v\0\0156\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\6\0005\3\3\0005\4\4\0=\4\5\3=\3\a\2B\0\2\0016\0\b\0009\0\t\0'\2\n\0B\0\2\1K\0\1\0#colorscheme github_dark_dimmed\bcmd\bvim\foptions\1\0\0\vstyles\1\0\n\14functions\tbold\ntypes\tbold\rcomments\vitalic\14constants\tbold\fnumbers\tNONE\14operators\tbold\17conditionals\tbold\14variables\tbold\fstrings\tNONE\rkeywords\vitalic\1\0\1\16transparent\2\nsetup\17github-theme\frequire\0", "config", "github-nvim-theme")
+try_loadstring("\27LJ\2\n½\2\0\0\5\0\v\0\0156\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\6\0005\3\3\0005\4\4\0=\4\5\3=\3\a\2B\0\2\0016\0\b\0009\0\t\0'\2\n\0B\0\2\1K\0\1\0#colorscheme github_dark_dimmed\bcmd\bvim\foptions\1\0\0\vstyles\1\0\n\fstrings\tNONE\14functions\tbold\ntypes\tbold\rkeywords\vitalic\14constants\tbold\14variables\tbold\17conditionals\tbold\14operators\tbold\fnumbers\tNONE\rcomments\vitalic\1\0\1\16transparent\2\nsetup\17github-theme\frequire\0", "config", "github-nvim-theme")
 time([[Config for github-nvim-theme]], false)
 
 _G._packer.inside_compile = false
