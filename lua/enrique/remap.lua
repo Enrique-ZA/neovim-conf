@@ -7,7 +7,6 @@ vim.keymap.set("i", "<S-a><S-a>", "<C-o>0") -- home
 vim.api.nvim_set_keymap('n', '<C-x>', ':wq<CR>', {noremap = true}) -- save and exit
 vim.api.nvim_set_keymap('i', '<C-x>', '<Esc>:wq<CR>', {noremap = true}) --save and exit
 vim.api.nvim_set_keymap('v', '<C-x>', ':wq<CR>', {noremap = true}) --save and exit
-vim.api.nvim_set_keymap('v', '<C-d>', 'y:call system("wl-copy", getreg(\"\"))<CR>', {noremap = true, silent = true})
 vim.keymap.set("i", "<S-f><S-f>", "<C-o>$") -- end
 vim.keymap.set("n", "<S-a><S-a>", "<Home>") -- home
 vim.keymap.set("n", "<S-f><S-f>", "<End>") -- end
@@ -112,6 +111,52 @@ end)
 
 lsp.setup()
 
+local comment = require('Comment')
+
+comment.setup({
+        ---Add a space b/w comment and the line
+    padding = true,
+    ---Whether the cursor should stay at its position
+    sticky = true,
+    ---Lines to be ignored while (un)comment
+    ignore = nil,
+    ---LHS of toggle mappings in NORMAL mode
+    toggler = {
+        ---Line-comment toggle keymap
+        line = nil,
+        ---Block-comment toggle keymap
+        block = nil,
+    },
+    ---LHS of operator-pending mappings in NORMAL and VISUAL mode
+    opleader = {
+        ---Line-comment keymap
+        line = 'gc',
+        ---Block-comment keymap
+        block = 'gb',
+    },
+    ---LHS of extra mappings
+    extra = {
+        ---Add comment on the line above
+        above = nil,
+        ---Add comment on the line below
+        below = nil,
+        ---Add comment at the end of line
+        eol = nil,
+    },
+    ---Enable keybindings
+    ---NOTE: If given `false` then the plugin won't create any mappings
+    mappings = {
+        ---Operator-pending mapping; `gcc` `gbc` `gc[count]{motion}` `gb[count]{motion}`
+        basic = true,
+        ---Extra mapping; `gco`, `gcO`, `gcA`
+        extra = false,
+    },
+    ---Function to call before (un)comment
+    pre_hook = nil,
+    ---Function to call after (un)comment
+    post_hook = nil,
+})
+
 vim.diagnostic.config({
     virtual_text = true
 })
@@ -119,4 +164,13 @@ vim.diagnostic.config({
 -- codeium
 vim.api.nvim_set_keymap('i', '<Tab>', '<Esc>:call codeium#Accept()<CR>a', {noremap = false, silent = true})
 vim.api.nvim_set_keymap('i', '<S-Tab>', '<Esc>:call codeium#Clear()<CR>a', {noremap = false, silent = true})
+
+-- cursor
+-- vim.cmd("set guicursor=n:block")
+vim.cmd("set guicursor=n:ver25-blinkon500")
+vim.cmd("set guicursor=v:ver25-blinkon0")
+vim.cmd("set guicursor=i:ver25-blinkon100")
+
+-- vim.api.nvim_set_keymap('v', '<C-d>', 'y:call system("wl-copy", getreg(\"\"))<CR>', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('v', '<C-d>', 'y:call system("wl-copy " . shellescape(getreg(\'\')))<CR>', {noremap = true, silent = true})
 
