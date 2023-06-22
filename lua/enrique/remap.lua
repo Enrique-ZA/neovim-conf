@@ -41,6 +41,8 @@ vim.api.nvim_set_keymap('v', '<Tab>', '', {noremap = false})
 vim.api.nvim_set_keymap('n', '<S-Tab>', '', {noremap = false})
 vim.api.nvim_set_keymap('i', '<S-Tab>', '', {noremap = false})
 vim.api.nvim_set_keymap('v', '<S-Tab>', '', {noremap = false})
+vim.api.nvim_set_keymap('n', '<C-b>', 'qw', {noremap = false})
+vim.api.nvim_set_keymap('n', '<C-f>', '@w', {noremap = false})
 
 -- telescope
 local builtin = require('telescope.builtin')
