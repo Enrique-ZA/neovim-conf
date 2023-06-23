@@ -78,3 +78,4 @@ vim.opt.hlsearch = false
 vim.opt.incsearch = true
 
 vim.api.nvim_set_option('wrap', true)
+vim.api.nvim_set_option('colorcolumn', '80')
