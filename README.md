@@ -1,4 +1,5 @@
-Installation (linux):
+* Installation (linux):
+```
 1.  Uses ripgrep: can be disabled by commenting out
        vim.keymap.set('n', '<leader>fs', function()
            builtin.grep_string({ search = vim.fn.input("Grep > ") });
@@ -13,7 +14,11 @@ Installation (linux):
 7.  nvim ~/.config/nvim/lua/enrique/packer.lua and wait for the plugins to install.
     press q and then close nvim.
 8.  Now you are all set!
+```
 
+* MIT LICENSE:
+
+```
 Copyright 2023 github.com/Enrique-ZA
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and 
@@ -31,3 +36,4 @@ FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS
 OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, 
 WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN 
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+```
