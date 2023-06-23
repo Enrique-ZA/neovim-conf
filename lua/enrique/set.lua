@@ -78,4 +78,24 @@ vim.opt.hlsearch = false
 vim.opt.incsearch = true
 
 vim.api.nvim_set_option('wrap', true)
-vim.api.nvim_set_option('colorcolumn', '80')
+
+-- vim.g.AutoPairsFlyMode = 1
+
+require('NeoColumn').setup({
+    always_on = true,
+    excluded_ft = {},
+    fg_color = "#E38B10",
+    bg_color = "#E38B10",
+    NeoColumn = {"80"},
+    custom_NeoColumn = {
+        markdown = {"80"}, 
+        javascript = {"80"}, 
+        lua = {"80"}, 
+        typescript = {"80"},
+        javascriptreact = {"80"}, 
+        typescriptreact = {"80"}, 
+        html = {"80"}, 
+        css = {"80"},
+    },
+})
+

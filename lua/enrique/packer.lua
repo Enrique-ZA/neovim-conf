@@ -22,7 +22,7 @@ return require('packer').startup(function(use)
             {'williamboman/mason-lspconfig.nvim'},
 
             -- Autocompletion
-            {'onsails/lspkind-nvim'}, --unavailable tag currently
+            {'onsails/lspkind-nvim'},
             {'hrsh7th/nvim-cmp'},
             {'hrsh7th/cmp-buffer'},
             {'hrsh7th/cmp-path'},
@@ -31,9 +31,15 @@ return require('packer').startup(function(use)
             {'hrsh7th/cmp-nvim-lua'},
 
             -- Snippets
-            {'L3MON4D3/LuaSnip'},
-            {'rafamadriz/friendly-snippets'},
 
+
+        }
+    }
+
+    use {
+        'L3MON4D3/LuaSnip',
+        requires = {
+            {'rafamadriz/friendly-snippets'},
         }
     }
 
@@ -61,14 +67,9 @@ return require('packer').startup(function(use)
     end
 })
 
-    use({
-        'ecthelionvi/NeoColumn.nvim',
-        config = function()
-             require('NeoColumn').setup({
-                 NeoColumn = "80",
-                 always_on = true
-             })
-        end
-    })
+use 'ecthelionvi/NeoColumn.nvim'
+
+-- use 'jiangmiao/auto-pairs'
+
 
 end)

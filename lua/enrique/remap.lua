@@ -112,6 +112,22 @@ lsp.on_attach(function(client, bufnr)
 end)
 
 lsp.setup()
+-- lsp.setup({
+--     cmd = { "eslint-language-server", "--stdio", "eslint" },
+--     filetypes = { "javascript", "typescript", "javascriptreact", "typescriptreact" },
+--     settings = {
+--         eslint = {
+--             run = "onSave",
+--             settings = {
+--                 react = { version = "detect" },
+--             },
+--             rulesCustomizations = {
+--                 ["strict"] = {'error', 'global'},
+--                 ["semi"] = { "warn", "always" },
+--             },
+--         },
+--     },
+-- })
 
 local comment = require('Comment')
 
@@ -176,3 +192,10 @@ vim.cmd("set guicursor=i:ver25-blinkon100")
 -- vim.api.nvim_set_keymap('v', '<C-d>', 'y:call system("wl-copy", getreg(\"\"))<CR>', {noremap = true, silent = true})
 vim.api.nvim_set_keymap('v', '<C-d>', 'y:call system("wl-copy " . shellescape(getreg(\'\')))<CR>', {noremap = true, silent = true})
 
+-- vim.api.nvim_set_option('colorcolumn', '90')
+vim.api.nvim_exec([[
+  autocmd BufRead,BufNewFile * setlocal colorcolumn=80
+]], false)
+
+require('luasnip/loaders/from_vscode').load()
+-- require('luasnip/loaders/from_vscode').load({ paths = { "./friendly-snippets" } })
