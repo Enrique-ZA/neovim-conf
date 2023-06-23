@@ -57,11 +57,18 @@ return require('packer').startup(function(use)
                 },
             }
         })
-
         vim.cmd('colorscheme github_dark_dimmed')
     end
 })
 
-
+    use({
+        'ecthelionvi/NeoColumn.nvim',
+        config = function()
+             require('NeoColumn').setup({
+                 NeoColumn = "80",
+                 always_on = true
+             })
+        end
+    })
 
 end)
