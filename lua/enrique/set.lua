@@ -76,3 +76,5 @@ vim.opt.swapfile = false
 
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
+
+vim.api.nvim_set_option('wrap', true)
