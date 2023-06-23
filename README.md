@@ -16,6 +16,28 @@
 8.  Now you are all set!
 ```
 
+* REMAPS:
+```
+Leader - Space
+Explorer - Leader+dd
+Save - Control+s
+Save and Quit - Control+x
+Redo - Control+y
+Undo - Control+z
+Left, Up, Down, Right - j, k, l, ; (for qwerty defualt hand position)
+Select all - Control+a
+Copy to clipboard - Control+d
+Insert empty line below - Alt+L
+Move selected line up - Shift+k
+Move selected line down - Shift+l
+Record macro start - Control+b
+Record macro end - q
+Perform macro - Control+f
+Go to definition - gd
+Variable description - Shift+k
+Previous file - Shift+pShift+p 
+``
+
 * MIT LICENSE:
 
 ```
