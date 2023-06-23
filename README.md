@@ -27,7 +27,7 @@ Undo - Control+z
 Left, Up, Down, Right - j, k, l, ; (for qwerty defualt hand position)
 Select all - Control+a
 Copy to clipboard - Control+d
-Insert empty line below - Alt+L
+Insert empty line below - Alt+l
 Move selected line up - Shift+k
 Move selected line down - Shift+l
 Record macro start - Control+b
