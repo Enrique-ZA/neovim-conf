@@ -2,12 +2,20 @@ return require('packer').startup(function(use)
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
 
+    use {
+        'iamcco/markdown-preview.nvim',
+        ft = {'markdown', 'vim-plug'}, -- plugin is only loaded for markdown and vim-plug file types
+        run = function() vim.fn['mkdp#util#install']() end
+    }
+
     use {'Exafunction/codeium.vim', tag = '1.2.26'}
 
     use {
         'nvim-telescope/telescope.nvim',
         requires = { {'nvim-lua/plenary.nvim'} }
     }
+
+    use {'theprimeagen/harpoon'}
 
     use { 'numToStr/Comment.nvim' }
 

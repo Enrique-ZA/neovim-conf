@@ -10,6 +10,8 @@ vim.diagnostic.config({
   },
 })
 
+vim.lsp.buf.inlay_hint(0)
+
 function PrintDiagnostics(opts, bufnr, line_nr, client_id)
   bufnr = bufnr or 0
   line_nr = line_nr or (vim.api.nvim_win_get_cursor(0)[1] - 1)
@@ -34,8 +36,8 @@ vim.cmd [[
         au!
         autocmd BufNewFile,BufRead * source ~/.config/nvim/plugin/packer_compiled.lua
         autocmd BufNewFile,BufRead * setlocal spell spelllang=en_us
-        autocmd BufNewFile,BufRead ~/.config/nvim/lua/enrique/packer.lua source
-        autocmd BufNewFile,BufRead ~/.config/nvim/lua/enrique/packer.lua PackerSync
+        " autocmd BufNewFile,BufRead ~/.config/nvim/lua/enrique/packer.lua source
+        " autocmd BufNewFile,BufRead ~/.config/nvim/lua/enrique/packer.lua PackerSync
         autocmd! CursorHold * lua PrintDiagnostics() 
     augroup END
 ]]
@@ -59,6 +61,12 @@ vim.opt.relativenumber = true
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
+
+vim.cmd [[
+  autocmd FileType javascript setlocal tabstop=2 shiftwidth=2 softtabstop=2
+  autocmd FileType typescript setlocal tabstop=2 shiftwidth=2 softtabstop=2
+]]
+
 vim.opt.expandtab = true
 
 vim.opt.smartindent = true
@@ -84,18 +92,20 @@ vim.api.nvim_set_option('wrap', true)
 require('NeoColumn').setup({
     always_on = true,
     excluded_ft = {},
-    fg_color = "#E38B10",
-    bg_color = "#E38B10",
-    NeoColumn = {"80"},
+    fg_color = "#2872B8",
+    bg_color = "#2872B8",
+    NeoColumn = {"90"},
     custom_NeoColumn = {
-        markdown = {"80"}, 
-        javascript = {"80"}, 
-        lua = {"80"}, 
-        typescript = {"80"},
-        javascriptreact = {"80"}, 
-        typescriptreact = {"80"}, 
-        html = {"80"}, 
-        css = {"80"},
+        markdown = {"90"}, 
+        javascript = {"90"}, 
+        lua = {"90"}, 
+        typescript = {"90"},
+        javascriptreact = {"90"}, 
+        typescriptreact = {"90"}, 
+        html = {"90"}, 
+        css = {"90"},
+        go = {"90"},
     },
 })
+
 

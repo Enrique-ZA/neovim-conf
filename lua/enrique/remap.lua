@@ -31,7 +31,7 @@ vim.keymap.set("i", "<A-j>", "<C-o><Left>") --
 vim.keymap.set("i", "<A-k>", "<C-o><Up>") --
 vim.keymap.set("i", "<A-l>", "<C-o><Down>") --
 vim.keymap.set("i", "<A-;>", "<C-o><Right>") --
-vim.keymap.set("n", "<S-p><S-p>", "<C-^>") -- go to previous file
+vim.keymap.set("n", "<S-e><S-e>", "<C-^>") -- go to previous file
 vim.api.nvim_set_keymap('n', '<A-l>', ':set paste<CR>m`o<Esc>j``:set nopaste<CR>', {noremap = true, silent = true}) -- insert new line normal mode
 vim.api.nvim_set_keymap('v', 'K', ':m \'<-2<CR>gv=gv', {noremap = true}) -- selected up in visual
 vim.api.nvim_set_keymap('v', 'L', ':m \'>+1<CR>gv=gv', {noremap = true}) -- selected down in visual
@@ -43,6 +43,16 @@ vim.api.nvim_set_keymap('i', '<S-Tab>', '', {noremap = false})
 vim.api.nvim_set_keymap('v', '<S-Tab>', '', {noremap = false})
 vim.api.nvim_set_keymap('n', '<C-b>', 'qw', {noremap = false})
 vim.api.nvim_set_keymap('n', '<C-f>', '@w', {noremap = false})
+vim.api.nvim_set_keymap('i', '<F4>f', '{', {noremap = true})
+vim.api.nvim_set_keymap('i', '<F4>r', '[', {noremap = true})
+vim.api.nvim_set_keymap('i', '<F4>v', '(', {noremap = true})
+vim.api.nvim_set_keymap('i', '<F4>j', '}', {noremap = true})
+vim.api.nvim_set_keymap('i', '<F4>u', ']', {noremap = true})
+vim.api.nvim_set_keymap('i', '<F4>n', ')', {noremap = true})
+
+-- markdown preview
+vim.api.nvim_set_keymap('n', '<F4>f', ':MarkdownPreview<CR>', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<F4>j', ':MarkdownPreviewStop<CR>', {noremap = true, silent = true})
 
 -- telescope
 local builtin = require('telescope.builtin')
@@ -58,7 +68,7 @@ local lsp = require("lsp-zero")
 lsp.preset("recommended")
 
 lsp.ensure_installed({
-    'csharp_ls',
+    -- 'csharp_ls',
     'lua_ls',
     'eslint',
     'tsserver',
@@ -194,8 +204,25 @@ vim.api.nvim_set_keymap('v', '<C-d>', 'y:call system("wl-copy " . shellescape(ge
 
 -- vim.api.nvim_set_option('colorcolumn', '90')
 vim.api.nvim_exec([[
-  autocmd BufRead,BufNewFile * setlocal colorcolumn=80
+  autocmd BufRead,BufNewFile * setlocal colorcolumn=90
 ]], false)
 
 require('luasnip/loaders/from_vscode').load()
 -- require('luasnip/loaders/from_vscode').load({ paths = { "./friendly-snippets" } })
+
+local mark = require("harpoon.mark")
+local ui = require("harpoon.ui")
+
+vim.keymap.set("n", "<leader>hh", mark.add_file)
+vim.keymap.set("n", "<C-y>", ui.toggle_quick_menu)
+vim.keymap.set("n", "<leader>jj", function() ui.nav_file(1) end)
+vim.keymap.set("n", "<leader>kk", function() ui.nav_file(2) end)
+vim.keymap.set("n", "<leader>ll", function() ui.nav_file(3) end)
+vim.keymap.set("n", "<leader>;;", function() ui.nav_file(4) end)
+
+-- require('github-theme').override.palettes({
+--     github_dark_dimmed = {
+--         comment = '#36D97D',
+--     },
+-- })
+
