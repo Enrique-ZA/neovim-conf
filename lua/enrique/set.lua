@@ -11,6 +11,7 @@ vim.diagnostic.config({
 })
 
 vim.lsp.buf.inlay_hint(0)
+vim.o.scrolloff = 10
 
 function PrintDiagnostics(opts, bufnr, line_nr, client_id)
   bufnr = bufnr or 0

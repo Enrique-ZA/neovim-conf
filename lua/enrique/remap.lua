@@ -4,9 +4,9 @@ vim.keymap.set("n", "<leader>dd", vim.cmd.Ex) -- explorer
 vim.keymap.set({"n","v"}, "<C-s>", vim.cmd.w) -- save
 vim.api.nvim_set_keymap('i', '<C-s>', '<Esc>:w<CR>', {noremap = true}) -- save and escape
 vim.keymap.set("i", "<S-a><S-a>", "<C-o>0") -- home
-vim.api.nvim_set_keymap('n', '<C-x>', ':wq<CR>', {noremap = true}) -- save and exit
-vim.api.nvim_set_keymap('i', '<C-x>', '<Esc>:wq<CR>', {noremap = true}) --save and exit
-vim.api.nvim_set_keymap('v', '<C-x>', ':wq<CR>', {noremap = true}) --save and exit
+vim.api.nvim_set_keymap('n', '<C-x>', ':wq<CR>', {noremap = false}) -- save and exit
+vim.api.nvim_set_keymap('i', '<C-x>', '<Esc>:wq<CR>', {noremap = false}) --save and exit
+vim.api.nvim_set_keymap('v', '<C-x>', ':wq<CR>', {noremap = false}) --save and exit
 vim.keymap.set("i", "<S-f><S-f>", "<C-o>$") -- end
 vim.keymap.set("n", "<S-a><S-a>", "<Home>") -- home
 vim.keymap.set("n", "<S-f><S-f>", "<End>") -- end
@@ -19,8 +19,9 @@ vim.keymap.set({"n","v"}, "j", "h") -- remap left
 vim.keymap.set({"n","v"}, "l", "j") -- remap down
 vim.keymap.set({"n","v"}, ";", "l") -- remap right
 vim.api.nvim_set_keymap("i", "<C-c>", "<Esc>:w<CR>", {noremap = true}) -- esc
-vim.api.nvim_set_keymap('n', '<C-a>', 'ggVG', {noremap = true})
-vim.keymap.set("i", "<C-a>", "<C-o>g<C-o>g<C-o>V<C-o>G") -- select all insert
+vim.api.nvim_set_keymap('n', "<C-a>", 'ggVG', {noremap = false})
+vim.api.nvim_set_keymap('v', "<C-a>", "<Esc>", {noremap = false})
+vim.keymap.set("i", "<C-a>", "<C-o>g<C-o>g<C-o>V<C-o>G", {noremap = false}) -- select all insert
 vim.keymap.set("i", "<PageUp>", "") --
 vim.keymap.set("i", "<PageDown>", "") --
 vim.keymap.set({"n","i"}, "<Up>", "") --
@@ -50,6 +51,10 @@ vim.api.nvim_set_keymap('i', '<F4>j', '}', {noremap = true})
 vim.api.nvim_set_keymap('i', '<F4>u', ']', {noremap = true})
 vim.api.nvim_set_keymap('i', '<F4>n', ')', {noremap = true})
 
+-- hooklinesinker
+vim.api.nvim_set_keymap('n', 'fd', [[<cmd>lua require'hooklinesinker'.save_position()<CR>]], {noremap = false, silent = true})
+vim.api.nvim_set_keymap('n', 'u', [[<cmd>lua require'hooklinesinker'.return_position()<CR>]], {noremap = false, silent = true})
+
 -- markdown preview
 vim.api.nvim_set_keymap('n', '<F4>f', ':MarkdownPreview<CR>', {noremap = true, silent = true})
 vim.api.nvim_set_keymap('n', '<F4>j', ':MarkdownPreviewStop<CR>', {noremap = true, silent = true})
@@ -69,6 +74,7 @@ lsp.preset("recommended")
 
 lsp.ensure_installed({
     -- 'csharp_ls',
+    'gopls',
     'lua_ls',
     'eslint',
     'tsserver',

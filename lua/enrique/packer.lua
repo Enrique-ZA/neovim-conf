@@ -2,6 +2,10 @@ return require('packer').startup(function(use)
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
 
+    use 'Enrique-ZA/nvim-hooklinesinker'
+
+    use 'udalov/kotlin-vim'
+
     use {
         'iamcco/markdown-preview.nvim',
         ft = {'markdown', 'vim-plug'}, -- plugin is only loaded for markdown and vim-plug file types

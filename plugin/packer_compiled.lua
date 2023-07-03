@@ -125,7 +125,7 @@ _G.packer_plugins = {
     url = "https://github.com/rafamadriz/friendly-snippets"
   },
   ["github-nvim-theme"] = {
-    config = { "\27LJ\2\n½\2\0\0\5\0\v\0\0156\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\6\0005\3\3\0005\4\4\0=\4\5\3=\3\a\2B\0\2\0016\0\b\0009\0\t\0'\2\n\0B\0\2\1K\0\1\0#colorscheme github_dark_dimmed\bcmd\bvim\foptions\1\0\0\vstyles\1\0\n\14constants\tbold\rkeywords\vitalic\fnumbers\tNONE\17conditionals\tbold\fstrings\tNONE\ntypes\tbold\rcomments\vitalic\14operators\tbold\14variables\tbold\14functions\tbold\1\0\1\16transparent\2\nsetup\17github-theme\frequire\0" },
+    config = { "\27LJ\2\n½\2\0\0\5\0\v\0\0156\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\6\0005\3\3\0005\4\4\0=\4\5\3=\3\a\2B\0\2\0016\0\b\0009\0\t\0'\2\n\0B\0\2\1K\0\1\0#colorscheme github_dark_dimmed\bcmd\bvim\foptions\1\0\0\vstyles\1\0\n\ntypes\tbold\rcomments\vitalic\14constants\tbold\fstrings\tNONE\fnumbers\tNONE\14operators\tbold\rkeywords\vitalic\17conditionals\tbold\14functions\tbold\14variables\tbold\1\0\1\16transparent\2\nsetup\17github-theme\frequire\0" },
     loaded = true,
     path = "/home/enrique/.local/share/nvim/site/pack/packer/start/github-nvim-theme",
     url = "https://github.com/projekt0n/github-nvim-theme"
@@ -134,6 +134,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/enrique/.local/share/nvim/site/pack/packer/start/harpoon",
     url = "https://github.com/theprimeagen/harpoon"
+  },
+  ["kotlin-vim"] = {
+    loaded = true,
+    path = "/home/enrique/.local/share/nvim/site/pack/packer/start/kotlin-vim",
+    url = "https://github.com/udalov/kotlin-vim"
   },
   ["lsp-zero.nvim"] = {
     loaded = true,
@@ -167,6 +172,11 @@ _G.packer_plugins = {
     path = "/home/enrique/.local/share/nvim/site/pack/packer/start/nvim-cmp",
     url = "https://github.com/hrsh7th/nvim-cmp"
   },
+  ["nvim-hooklinesinker"] = {
+    loaded = true,
+    path = "/home/enrique/.local/share/nvim/site/pack/packer/start/nvim-hooklinesinker",
+    url = "https://github.com/Enrique-ZA/nvim-hooklinesinker"
+  },
   ["nvim-lspconfig"] = {
     loaded = true,
     path = "/home/enrique/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
@@ -197,14 +207,14 @@ _G.packer_plugins = {
 time([[Defining packer_plugins]], false)
 -- Config for: github-nvim-theme
 time([[Config for github-nvim-theme]], true)
-try_loadstring("\27LJ\2\n½\2\0\0\5\0\v\0\0156\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\6\0005\3\3\0005\4\4\0=\4\5\3=\3\a\2B\0\2\0016\0\b\0009\0\t\0'\2\n\0B\0\2\1K\0\1\0#colorscheme github_dark_dimmed\bcmd\bvim\foptions\1\0\0\vstyles\1\0\n\14constants\tbold\rkeywords\vitalic\fnumbers\tNONE\17conditionals\tbold\fstrings\tNONE\ntypes\tbold\rcomments\vitalic\14operators\tbold\14variables\tbold\14functions\tbold\1\0\1\16transparent\2\nsetup\17github-theme\frequire\0", "config", "github-nvim-theme")
+try_loadstring("\27LJ\2\n½\2\0\0\5\0\v\0\0156\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\6\0005\3\3\0005\4\4\0=\4\5\3=\3\a\2B\0\2\0016\0\b\0009\0\t\0'\2\n\0B\0\2\1K\0\1\0#colorscheme github_dark_dimmed\bcmd\bvim\foptions\1\0\0\vstyles\1\0\n\ntypes\tbold\rcomments\vitalic\14constants\tbold\fstrings\tNONE\fnumbers\tNONE\14operators\tbold\rkeywords\vitalic\17conditionals\tbold\14functions\tbold\14variables\tbold\1\0\1\16transparent\2\nsetup\17github-theme\frequire\0", "config", "github-nvim-theme")
 time([[Config for github-nvim-theme]], false)
 vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Filetype lazy-loads
 time([[Defining lazy-load filetype autocommands]], true)
-vim.cmd [[au FileType markdown ++once lua require("packer.load")({'markdown-preview.nvim'}, { ft = "markdown" }, _G.packer_plugins)]]
 vim.cmd [[au FileType vim-plug ++once lua require("packer.load")({'markdown-preview.nvim'}, { ft = "vim-plug" }, _G.packer_plugins)]]
+vim.cmd [[au FileType markdown ++once lua require("packer.load")({'markdown-preview.nvim'}, { ft = "markdown" }, _G.packer_plugins)]]
 time([[Defining lazy-load filetype autocommands]], false)
 vim.cmd("augroup END")
 
