@@ -4,6 +4,7 @@ return require('packer').startup(function(use)
 
     use 'Enrique-ZA/nvim-hooklinesinker'
 
+
     use 'udalov/kotlin-vim'
 
     use {
@@ -11,8 +12,6 @@ return require('packer').startup(function(use)
         ft = {'markdown', 'vim-plug'}, -- plugin is only loaded for markdown and vim-plug file types
         run = function() vim.fn['mkdp#util#install']() end
     }
-
-    use {'Exafunction/codeium.vim', tag = '1.2.26'}
 
     use {
         'nvim-telescope/telescope.nvim',
@@ -38,9 +37,14 @@ return require('packer').startup(function(use)
             {'hrsh7th/nvim-cmp'},
             {'hrsh7th/cmp-buffer'},
             {'hrsh7th/cmp-path'},
+            {'hrsh7th/cmp-cmdline'},
             {'saadparwaiz1/cmp_luasnip'},
             {'hrsh7th/cmp-nvim-lsp'},
             {'hrsh7th/cmp-nvim-lua'},
+            {'hrsh7th/cmp-nvim-lsp-signature-help'},
+            {'jose-elias-alvarez/null-ls.nvim'},
+
+
 
             -- Snippets
 
@@ -80,8 +84,32 @@ return require('packer').startup(function(use)
 })
 
 use 'ecthelionvi/NeoColumn.nvim'
+use 'lukas-reineke/indent-blankline.nvim' -- show indents
 
+vim.opt.list = true
+vim.opt.listchars:append "space:⋅"
+vim.opt.listchars:append "eol:↴"
+
+require("indent_blankline").setup {
+    char = "",
+    char_highlight_list = {
+        "IndentBlanklineIndent1",
+        "IndentBlanklineIndent2",
+    },
+    space_char_highlight_list = {
+        "IndentBlanklineIndent1",
+        "IndentBlanklineIndent2",
+    },
+    show_trailing_blankline_indent = false,
+}
+
+use "Hoffs/omnisharp-extended-lsp.nvim" -- omnisharp
+
+use { "danymat/neogen", tag = "*" } -- annotation
+
+use 'famiu/bufdelete.nvim'
 -- use 'jiangmiao/auto-pairs'
 
 
 end)
+
