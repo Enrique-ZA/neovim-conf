@@ -10,8 +10,6 @@ vim.diagnostic.config({
   },
 })
 
-vim.lsp.buf.inlay_hint(0)
-vim.o.scrolloff = 10
 
 function PrintDiagnostics(opts, bufnr, line_nr, client_id)
   bufnr = bufnr or 0
@@ -32,6 +30,13 @@ function PrintDiagnostics(opts, bufnr, line_nr, client_id)
   vim.api.nvim_echo({{diagnostic_message, "Normal"}}, false, {})
 end
 
+vim.opt.list = true
+vim.opt.listchars:append "space:⋅"
+-- vim.opt.listchars:append "eol:↴"
+
+-- vim.lsp.buf.inlay_hint(0)
+vim.o.scrolloff = 10
+
 vim.cmd [[
     augroup custom
         au!
@@ -45,16 +50,16 @@ vim.cmd [[
 
 -- :setlocal spell spelllang=en_us
 
-vim.diagnostic.config({
-  virtual_text = {
-    -- source = "always",  -- Or "if_many"
-    prefix = '●', -- Could be '■', '▎', 'x'
-  },
-  severity_sort = true,
-  float = {
-    source = "always",  -- Or "if_many"
-  },
-})
+-- vim.diagnostic.config({
+--   virtual_text = {
+--     -- source = "always",  -- Or "if_many"
+--     prefix = '●', -- Could be '■', '▎', 'x'
+--   },
+--   severity_sort = true,
+--   float = {
+--     source = "always",  -- Or "if_many"
+--   },
+-- })
 
 vim.opt.nu = true
 vim.opt.relativenumber = true
@@ -66,6 +71,10 @@ vim.opt.shiftwidth = 4
 vim.cmd [[
   autocmd FileType javascript setlocal tabstop=2 shiftwidth=2 softtabstop=2
   autocmd FileType typescript setlocal tabstop=2 shiftwidth=2 softtabstop=2
+  autocmd FileType json setlocal tabstop=2 shiftwidth=2 softtabstop=2
+  autocmd FileType typescript.tsx setlocal tabstop=2 shiftwidth=2 softtabstop=2
+  autocmd FileType css setlocal tabstop=2 shiftwidth=2 softtabstop=2
+  autocmd FileType html setlocal tabstop=2 shiftwidth=2 softtabstop=2
 ]]
 
 vim.opt.expandtab = true

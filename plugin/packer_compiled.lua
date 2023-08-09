@@ -89,15 +89,30 @@ _G.packer_plugins = {
     path = "/home/enrique/.local/share/nvim/site/pack/packer/start/NeoColumn.nvim",
     url = "https://github.com/ecthelionvi/NeoColumn.nvim"
   },
+  ["bufdelete.nvim"] = {
+    loaded = true,
+    path = "/home/enrique/.local/share/nvim/site/pack/packer/start/bufdelete.nvim",
+    url = "https://github.com/famiu/bufdelete.nvim"
+  },
   ["cmp-buffer"] = {
     loaded = true,
     path = "/home/enrique/.local/share/nvim/site/pack/packer/start/cmp-buffer",
     url = "https://github.com/hrsh7th/cmp-buffer"
   },
+  ["cmp-cmdline"] = {
+    loaded = true,
+    path = "/home/enrique/.local/share/nvim/site/pack/packer/start/cmp-cmdline",
+    url = "https://github.com/hrsh7th/cmp-cmdline"
+  },
   ["cmp-nvim-lsp"] = {
     loaded = true,
     path = "/home/enrique/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
     url = "https://github.com/hrsh7th/cmp-nvim-lsp"
+  },
+  ["cmp-nvim-lsp-signature-help"] = {
+    loaded = true,
+    path = "/home/enrique/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp-signature-help",
+    url = "https://github.com/hrsh7th/cmp-nvim-lsp-signature-help"
   },
   ["cmp-nvim-lua"] = {
     loaded = true,
@@ -114,18 +129,13 @@ _G.packer_plugins = {
     path = "/home/enrique/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
   },
-  ["codeium.vim"] = {
-    loaded = true,
-    path = "/home/enrique/.local/share/nvim/site/pack/packer/start/codeium.vim",
-    url = "https://github.com/Exafunction/codeium.vim"
-  },
   ["friendly-snippets"] = {
     loaded = true,
     path = "/home/enrique/.local/share/nvim/site/pack/packer/start/friendly-snippets",
     url = "https://github.com/rafamadriz/friendly-snippets"
   },
   ["github-nvim-theme"] = {
-    config = { "\27LJ\2\n½\2\0\0\5\0\v\0\0156\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\6\0005\3\3\0005\4\4\0=\4\5\3=\3\a\2B\0\2\0016\0\b\0009\0\t\0'\2\n\0B\0\2\1K\0\1\0#colorscheme github_dark_dimmed\bcmd\bvim\foptions\1\0\0\vstyles\1\0\n\ntypes\tbold\rcomments\vitalic\14constants\tbold\fstrings\tNONE\fnumbers\tNONE\14operators\tbold\rkeywords\vitalic\17conditionals\tbold\14functions\tbold\14variables\tbold\1\0\1\16transparent\2\nsetup\17github-theme\frequire\0" },
+    config = { "\27LJ\2\n½\2\0\0\5\0\v\0\0156\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\6\0005\3\3\0005\4\4\0=\4\5\3=\3\a\2B\0\2\0016\0\b\0009\0\t\0'\2\n\0B\0\2\1K\0\1\0#colorscheme github_dark_dimmed\bcmd\bvim\foptions\1\0\0\vstyles\1\0\n\fnumbers\tNONE\14operators\tbold\14functions\tbold\fstrings\tNONE\ntypes\tbold\14constants\tbold\rcomments\vitalic\14variables\tbold\rkeywords\vitalic\17conditionals\tbold\1\0\1\16transparent\2\nsetup\17github-theme\frequire\0" },
     loaded = true,
     path = "/home/enrique/.local/share/nvim/site/pack/packer/start/github-nvim-theme",
     url = "https://github.com/projekt0n/github-nvim-theme"
@@ -134,6 +144,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/enrique/.local/share/nvim/site/pack/packer/start/harpoon",
     url = "https://github.com/theprimeagen/harpoon"
+  },
+  ["indent-blankline.nvim"] = {
+    loaded = true,
+    path = "/home/enrique/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
+    url = "https://github.com/lukas-reineke/indent-blankline.nvim"
   },
   ["kotlin-vim"] = {
     loaded = true,
@@ -167,6 +182,16 @@ _G.packer_plugins = {
     path = "/home/enrique/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
   },
+  neogen = {
+    loaded = true,
+    path = "/home/enrique/.local/share/nvim/site/pack/packer/start/neogen",
+    url = "https://github.com/danymat/neogen"
+  },
+  ["null-ls.nvim"] = {
+    loaded = true,
+    path = "/home/enrique/.local/share/nvim/site/pack/packer/start/null-ls.nvim",
+    url = "https://github.com/jose-elias-alvarez/null-ls.nvim"
+  },
   ["nvim-cmp"] = {
     loaded = true,
     path = "/home/enrique/.local/share/nvim/site/pack/packer/start/nvim-cmp",
@@ -187,6 +212,11 @@ _G.packer_plugins = {
     path = "/home/enrique/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
   },
+  ["omnisharp-extended-lsp.nvim"] = {
+    loaded = true,
+    path = "/home/enrique/.local/share/nvim/site/pack/packer/start/omnisharp-extended-lsp.nvim",
+    url = "https://github.com/Hoffs/omnisharp-extended-lsp.nvim"
+  },
   ["packer.nvim"] = {
     loaded = true,
     path = "/home/enrique/.local/share/nvim/site/pack/packer/start/packer.nvim",
@@ -196,6 +226,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/enrique/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
+  },
+  ["prettier.nvim"] = {
+    loaded = true,
+    path = "/home/enrique/.local/share/nvim/site/pack/packer/start/prettier.nvim",
+    url = "https://github.com/MunifTanjim/prettier.nvim"
   },
   ["telescope.nvim"] = {
     loaded = true,
@@ -207,7 +242,7 @@ _G.packer_plugins = {
 time([[Defining packer_plugins]], false)
 -- Config for: github-nvim-theme
 time([[Config for github-nvim-theme]], true)
-try_loadstring("\27LJ\2\n½\2\0\0\5\0\v\0\0156\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\6\0005\3\3\0005\4\4\0=\4\5\3=\3\a\2B\0\2\0016\0\b\0009\0\t\0'\2\n\0B\0\2\1K\0\1\0#colorscheme github_dark_dimmed\bcmd\bvim\foptions\1\0\0\vstyles\1\0\n\ntypes\tbold\rcomments\vitalic\14constants\tbold\fstrings\tNONE\fnumbers\tNONE\14operators\tbold\rkeywords\vitalic\17conditionals\tbold\14functions\tbold\14variables\tbold\1\0\1\16transparent\2\nsetup\17github-theme\frequire\0", "config", "github-nvim-theme")
+try_loadstring("\27LJ\2\n½\2\0\0\5\0\v\0\0156\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\6\0005\3\3\0005\4\4\0=\4\5\3=\3\a\2B\0\2\0016\0\b\0009\0\t\0'\2\n\0B\0\2\1K\0\1\0#colorscheme github_dark_dimmed\bcmd\bvim\foptions\1\0\0\vstyles\1\0\n\fnumbers\tNONE\14operators\tbold\14functions\tbold\fstrings\tNONE\ntypes\tbold\14constants\tbold\rcomments\vitalic\14variables\tbold\rkeywords\vitalic\17conditionals\tbold\1\0\1\16transparent\2\nsetup\17github-theme\frequire\0", "config", "github-nvim-theme")
 time([[Config for github-nvim-theme]], false)
 vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]

@@ -6,3 +6,4 @@ function CMP(color)
 end
 
 CMP()
+

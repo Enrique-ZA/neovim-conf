@@ -22,7 +22,7 @@ return require('packer').startup(function(use)
 
     use { 'numToStr/Comment.nvim' }
 
-    use ('nvim-treesitter/nvim-treesitter',{run = ':TSUpdate'})
+    use ('nvim-treesitter/nvim-treesitter',{rev = 'cc360a9beb1b30d172438f640e2c3450358c4086'},{run = ':TSUpdate'})
 
     use {
         'VonHeikemen/lsp-zero.nvim',
@@ -86,10 +86,6 @@ return require('packer').startup(function(use)
 use 'ecthelionvi/NeoColumn.nvim'
 use 'lukas-reineke/indent-blankline.nvim' -- show indents
 
-vim.opt.list = true
-vim.opt.listchars:append "space:⋅"
-vim.opt.listchars:append "eol:↴"
-
 require("indent_blankline").setup {
     char = "",
     char_highlight_list = {
@@ -103,12 +99,32 @@ require("indent_blankline").setup {
     show_trailing_blankline_indent = false,
 }
 
-use "Hoffs/omnisharp-extended-lsp.nvim" -- omnisharp
+-- use "Hoffs/omnisharp-extended-lsp.nvim" -- omnisharp
 
 use { "danymat/neogen", tag = "*" } -- annotation
 
 use 'famiu/bufdelete.nvim'
 -- use 'jiangmiao/auto-pairs'
+
+use ('MunifTanjim/prettier.nvim', {rev='9a3086f2fdd54d4ef08cab4583957123f66bc9dd'}) 
+
+-- use 'Lommix/godot.nvim'
+
+use {
+  'razzmatazz/csharp-language-server',
+  tag = '0.5.7', -- specify the version to install
+  -- specify the install and update commands
+  install_script = [[
+  curl -L -o csharp-ls.zip https://github.com/razzmatazz/csharp-language-server/releases/download/0.5.7/csharp-language-server-0.5.7.zip
+  unzip csharp-ls.zip
+  rm csharp-ls.zip
+  ]],
+  update_script = [[
+  curl -L -o csharp-ls.zip https://github.com/razzmatazz/csharp-language-server/releases/download/0.5.7/csharp-language-server-0.5.7.zip
+  unzip csharp-ls.zip
+  rm csharp-ls.zip
+  ]]
+}
 
 
 end)
