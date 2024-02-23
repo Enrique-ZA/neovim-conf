@@ -14,7 +14,7 @@ git checkout 1d0cf98a561f7fd654c970c49f917d74fafe1530
 4.  Clone the repository and put the files and folders inside ~/.config/nvim/
 5.  nvim ~/.config/nvim/lua/enrique/packer.lua 
 6.  Type :so and hit enter key.
-7.  Type :PackerSync and hit enter key.
+7.  Type :PackerSync and hit enter key. Wait for the plugins to be installed.
 8.  Exit nvim
 9.  nvim ~/.config/nvim/lua/enrique/remap.lua 
 10. Type :so and hit enter key.
