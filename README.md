@@ -29,23 +29,25 @@ git checkout 1d0cf98a561f7fd654c970c49f917d74fafe1530
 * REMAPS:
 ```
 Leader - Space
-Explorer - Leader+dd
-Save - Control+s
-Save and Quit - Control+x
-Redo - Control+y
-Undo - Control+z
+Explorer - <leader>dd
+Save - <C-s>
+Save and Quit - <C-x>
+Redo - <C-y>
+Undo - <C-z>
+Home - <A-a>
+End - <A-f>
 Left, Up, Down, Right - j, k, l, ; (for qwerty default hand position)
-Select all - Control+a
-Copy to clipboard - Control+d
-Insert empty line below - Alt+l
-Move selected line up - Shift+k
-Move selected line down - Shift+l
-Record macro start - Control+b
+Select all - <C-a>
+Copy to clipboard - <C-d>
+Insert empty line below - <A-l>
+Move selected line up - K
+Move selected line down - L
+Record macro start - <C-b>
 Record macro end - q
-Perform macro - Control+f
+Perform macro - <C-f>
 Go to definition - gd
-Variable description - Shift+k
-Previous file - Shift+pShift+p 
+Variable description - <leader>J
+Previous file - <A-e>
 ```
 
 * MIT LICENSE:
