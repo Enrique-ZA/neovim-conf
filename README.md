@@ -1,12 +1,8 @@
 * Installation (Linux):
 ```
-1.  Uses ripgrep: can be disabled by commenting out
-       vim.keymap.set('n', '<leader>fs', function()
-           builtin.grep_string({ search = vim.fn.input("Grep > ") });
-       end)
-    in the remap.lua file
+1.  Install ripgrep
 2.  Uses Prettier: npm i -g prettier
-3.  Uses packer:
+3.  Install packer:
 ```
 ```
 git clone --depth 1 https://github.com/wbthomason/packer.nvim\
