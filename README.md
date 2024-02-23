@@ -2,7 +2,7 @@
 * Installation (Linux):
 ```
 1.  Install ripgrep
-2.  Uses Prettier: npm i -g prettier
+2.  Install Prettier: npm i -g prettier
 3.  Install packer:
 ```
 ```
