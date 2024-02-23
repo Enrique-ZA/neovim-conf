@@ -148,12 +148,12 @@ return require('packer').startup(function(use)
         'nvim-lua/plenary.nvim',
         commit = '267282a9ce242bbb0c5dc31445b6d353bed978bb'
     })
-
     use({
         "ThePrimeagen/harpoon",
         branch = "master",
         commit = "21f4c47c6803d64ddb934a5b314dcb1b8e7365dc",
     })
+    -- telescope --
 
     use({
         'lukas-reineke/indent-blankline.nvim',
