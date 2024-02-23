@@ -24,9 +24,9 @@ git checkout 1d0cf98a561f7fd654c970c49f917d74fafe1530
 10. Type :so and hit enter key.
 11. Exit nvim
 12. nvim ~/.config/nvim/lua/enrique/set.lua 
-13.  Type :so and hit enter key.
-14.  Exit nvim
-15.  Now you are all set!
+13. Type :so and hit enter key.
+14. Exit nvim
+15. Now you are all set!
 ```
 
 * REMAPS:
