@@ -102,6 +102,7 @@ null_ls.setup({
 
 -- my rebinds
 vim.g.mapleader = " "
+vim.api.nvim_set_keymap('n', '<A-v>', '<C-v>', {noremap = true}) -- remap visual block for remote machine
 vim.keymap.set("n", "<leader>dd", vim.cmd.Ex) -- explorer
 vim.keymap.set({"n","v"}, "<C-s>", '<Esc>:Prettier<CR><Esc>:w<CR>') -- save
 vim.api.nvim_set_keymap('i', '<C-s>', '<Esc>:Prettier<CR><Esc>:w<CR>', {noremap = true}) -- save and escape
