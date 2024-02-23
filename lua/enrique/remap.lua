@@ -1,3 +1,105 @@
+local prettier = require("prettier")
+
+prettier.setup({
+  bin = 'prettier', -- or `'prettierd'` (v0.23.3+)
+  filetypes = {
+    "css",
+    "graphql",
+    "html",
+    "javascript",
+    "javascriptreact",
+    "json",
+    "less",
+    "markdown",
+    "scss",
+    "typescript",
+    "typescriptreact",
+    "yaml",
+    "angular",
+    "vue",
+    "flow",
+  },
+    cli_options = {
+    config_precedence = "cli-override",
+    arrow_parens = "always",
+    bracket_spacing = true,
+    bracket_same_line = true,
+    embedded_language_formatting = "auto",
+    end_of_line = "lf",
+    html_whitespace_sensitivity = "css",
+    jsx_single_quote = false,
+    jsx_bracket_same_line = true,
+    tsx_single_quote = false,
+    tsx_bracket_same_line = true,
+    print_width = 90,
+    prose_wrap = "preserve",
+    quote_props = "as-needed",
+    semi = true,
+    single_attribute_per_line = false,
+    single_quote = false,
+    tab_width = 2,
+    trailing_comma = "es5",
+    use_tabs = false,
+    vue_indent_script_and_style = false,
+  },
+})
+
+local null_ls = require("null-ls")
+
+local group = vim.api.nvim_create_augroup("lsp_format_on_save", { clear = false })
+local event = "BufWritePre" -- or "BufWritePost"
+local async = event == "BufWritePost"
+
+local sources = {
+  null_ls.builtins.formatting.prettier.with({
+    filetypes = {
+      "css",
+      "graphql",
+      "html",
+      "javascript",
+      "javascriptreact",
+      "json",
+      "less",
+      "markdown",
+      "scss",
+      "typescript",
+      "typescriptreact",
+      "yaml",
+      "angular",
+      "vue",
+      "flow",
+    },
+  }),
+}
+
+null_ls.setup({
+    sources = sources,
+  on_attach = function(client, bufnr)
+    if client.supports_method("textDocument/formatting") then
+      vim.keymap.set("n", "<leader>ghlkfhh", function()
+        vim.lsp.buf.format({ bufnr = vim.api.nvim_get_current_buf() })
+      end, { buffer = bufnr, desc = "[lsp] format" })
+
+      -- format on save
+      vim.api.nvim_clear_autocmds({ buffer = bufnr, group = group })
+      vim.api.nvim_create_autocmd(event, {
+        buffer = bufnr,
+        group = group,
+        callback = function()
+          vim.lsp.buf.format({ bufnr = bufnr, async = async })
+        end,
+        desc = "[lsp] format on save",
+      })
+    end
+
+    if client.supports_method("textDocument/rangeFormatting") then
+      vim.keymap.set("x", "<Leader>ghlkfhh", function()
+        vim.lsp.buf.format({ bufnr = vim.api.nvim_get_current_buf() })
+      end, { buffer = bufnr, desc = "[lsp] format" })
+    end
+  end,
+})
+
 -- my rebinds
 vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>dd", vim.cmd.Ex) -- explorer
@@ -7,9 +109,9 @@ vim.keymap.set("i", "<S-a><S-a>", "<C-o>0") -- home
 vim.api.nvim_set_keymap('n', '<C-x>', ':wq!<CR>', {noremap = false}) -- save and exit
 vim.api.nvim_set_keymap('i', '<C-x>', '<Esc>:wq!<CR>', {noremap = false}) --save and exit
 vim.api.nvim_set_keymap('v', '<C-x>', ':wq!<CR>', {noremap = false}) --save and exit
-vim.keymap.set("i", "<S-f><S-f>", "<C-o>$") -- end
-vim.keymap.set("n", "<S-a><S-a>", "<Home>") -- home
-vim.keymap.set("n", "<S-f><S-f>", "<End>") -- end
+vim.keymap.set("i", "<A-f>", "<C-o>$") -- end
+vim.keymap.set("n", "<A-a>", "<Home>") -- home
+vim.keymap.set("n", "<A-f>", "<End>") -- end
 vim.keymap.set("n", "<C-z>", "u") -- undo
 vim.keymap.set("i", "<C-z>", "<C-o>u") -- undo
 vim.api.nvim_set_keymap('v', '<c-z>', 'u', {noremap = true}) -- undo
@@ -32,13 +134,10 @@ vim.keymap.set("i", "<A-j>", "<C-o><Left>") --
 vim.keymap.set("i", "<A-k>", "<C-o><Up>") --
 vim.keymap.set("i", "<A-l>", "<C-o><Down>") --
 vim.keymap.set("i", "<A-;>", "<C-o><Right>") --
-vim.keymap.set("n", "<S-e><S-e>", "<C-^>") -- go to previous file
+vim.keymap.set("n", "<A-e>", "<C-^>") -- go to previous file
 vim.api.nvim_set_keymap('n', '<A-l>', ':set paste<CR>m`o<Esc>j``:set nopaste<CR>', {noremap = true, silent = true}) -- insert new line normal mode
 vim.api.nvim_set_keymap('v', 'K', ':m \'<-2<CR>gv=gv', {noremap = true}) -- selected up in visual
 vim.api.nvim_set_keymap('v', 'L', ':m \'>+1<CR>gv=gv', {noremap = true}) -- selected down in visual
--- vim.api.nvim_set_keymap('n', '<Tab>', '', {noremap = false})
--- vim.api.nvim_set_keymap('i', '<Tab>', '', {noremap = false})
--- vim.api.nvim_set_keymap('v', '<Tab>', '', {noremap = false})
 vim.api.nvim_set_keymap('n', '<S-Tab>', '', {noremap = false})
 vim.api.nvim_set_keymap('i', '<S-Tab>', '', {noremap = false})
 vim.api.nvim_set_keymap('v', '<S-Tab>', '', {noremap = false})
@@ -74,11 +173,11 @@ lsp.preset("recommended")
 
 lsp.ensure_installed({
     -- 'csharp_ls',
-    'ocamllsp',
-    'gopls',
-    'lua_ls',
-    'eslint',
-    'tsserver',
+    -- 'ocamllsp',
+    -- 'gopls',
+    -- 'lua_ls',
+    -- 'eslint',
+    -- 'tsserver',
     'rust_analyzer',
 })
 
@@ -116,7 +215,7 @@ lsp.on_attach(function(client, bufnr)
     local opts = {buffer = bufnr, remap = false}
 
     vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
-    vim.keymap.set("n", "<leader>K", function() vim.lsp.buf.hover() end, opts)
+    vim.keymap.set("n", "<leader>J", function() vim.lsp.buf.hover() end, opts)
     --[[  vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
     vim.keymap.set("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end, opts)
     vim.keymap.set("n", "<leader>vd", function() vim.diagnostic.open_float() end, opts)
@@ -133,8 +232,7 @@ lsp.setup()
 local comment = require('Comment')
 
 comment.setup({
-        ---Add a space b/w comment and the line
-    padding = true,
+    padding = true, ---Add a space b/w comment and the line
     ---Whether the cursor should stay at its position
     sticky = true,
     ---Lines to be ignored while (un)comment
@@ -180,18 +278,11 @@ vim.diagnostic.config({
     virtual_text = true
 })
 
--- codeium
--- vim.api.nvim_set_keymap('i', '<Tab>', '<Esc>:call codeium#Accept()<CR>a', {noremap = false, silent = true})
--- vim.api.nvim_set_keymap('i', '<S-Tab>', '<Esc>:call codeium#Clear()<CR>a', {noremap = false, silent = true})
-
--- cursor
--- vim.cmd("set guicursor=n:block")
 vim.cmd("set guicursor=n:ver25-blinkon500")
 vim.cmd("set guicursor=v:ver25-blinkon0")
 vim.cmd("set guicursor=i:ver25-blinkon100")
 
--- vim.api.nvim_set_keymap('v', '<C-d>', 'y:call system("wl-copy", getreg(\"\"))<CR>', {noremap = true, silent = true})
-vim.api.nvim_set_keymap('v', '<C-d>', 'y:call system("wl-copy " . shellescape(getreg(\'\')))<CR>', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('v', '<C-d>', 'y:call writefile([getreg(\'\')], expand(\'~/temp/nvim_clipboard\'))<CR>', {noremap = true, silent = true})
 
 -- vim.api.nvim_set_option('colorcolumn', '90')
 vim.api.nvim_exec([[
@@ -205,141 +296,11 @@ local mark = require("harpoon.mark")
 local ui = require("harpoon.ui")
 
 vim.keymap.set("n", "<leader>hh", mark.add_file)
-vim.keymap.set("n", "<C-y>", ui.toggle_quick_menu)
+vim.keymap.set("n", "<A-y>", ui.toggle_quick_menu)
 vim.keymap.set("n", "<leader>jj", function() ui.nav_file(1) end)
 vim.keymap.set("n", "<leader>kk", function() ui.nav_file(2) end)
 vim.keymap.set("n", "<leader>ll", function() ui.nav_file(3) end)
 vim.keymap.set("n", "<leader>;;", function() ui.nav_file(4) end)
-
--- require('github-theme').override.palettes({
---     github_dark_dimmed = {
---         comment = '#36D97D',
---     },
--- })
-
-local null_ls = require("null-ls")
-
-local group = vim.api.nvim_create_augroup("lsp_format_on_save", { clear = false })
-local event = "BufWritePre" -- or "BufWritePost"
-local async = event == "BufWritePost"
-
-null_ls.setup({
-  on_attach = function(client, bufnr)
-    if client.supports_method("textDocument/formatting") then
-      vim.keymap.set("n", "<leader>ghlkfhh", function()
-        vim.lsp.buf.format({ bufnr = vim.api.nvim_get_current_buf() })
-      end, { buffer = bufnr, desc = "[lsp] format" })
-
-      -- format on save
-      vim.api.nvim_clear_autocmds({ buffer = bufnr, group = group })
-      vim.api.nvim_create_autocmd(event, {
-        buffer = bufnr,
-        group = group,
-        callback = function()
-          vim.lsp.buf.format({ bufnr = bufnr, async = async })
-        end,
-        desc = "[lsp] format on save",
-      })
-    end
-
-    if client.supports_method("textDocument/rangeFormatting") then
-      vim.keymap.set("x", "<Leader>ghlkfhh", function()
-        vim.lsp.buf.format({ bufnr = vim.api.nvim_get_current_buf() })
-      end, { buffer = bufnr, desc = "[lsp] format" })
-    end
-  end,
-})
-
-local prettier = require("prettier")
-
-prettier.setup({
-  bin = 'prettier', -- or `'prettierd'` (v0.23.3+)
-  filetypes = {
-    "css",
-    "graphql",
-    "html",
-    "javascript",
-    "javascriptreact",
-    "json",
-    "less",
-    "markdown",
-    "scss",
-    "typescript",
-    "typescriptreact",
-    "yaml",
-  },
-    cli_options = {
-    config_precedence = "cli-override",
-    arrow_parens = "always",
-    bracket_spacing = true,
-    bracket_same_line = true,
-    embedded_language_formatting = "auto",
-    end_of_line = "lf",
-    html_whitespace_sensitivity = "css",
-    jsx_single_quote = false,
-    jsx_bracket_same_line = true,
-    tsx_single_quote = false,
-    tsx_bracket_same_line = true,
-    print_width = 90,
-    prose_wrap = "preserve",
-    quote_props = "as-needed",
-    semi = true,
-    single_attribute_per_line = false,
-    single_quote = false,
-    tab_width = 2,
-    trailing_comma = "es5",
-    use_tabs = false,
-    vue_indent_script_and_style = false,
-  },
-})
-
--- vim.api.nvim_set_keymap('n', '=', ':Prettier<CR>', {noremap = false, silent = true})
--- vim.api.nvim_set_keymap('x', '=', ':Prettier<CR>', {noremap = false, silent = true})
--- vim.api.nvim_set_keymap('v', '=', ':Prettier<CR>', {noremap = false, silent = true})
-
--- omnisharp extended plugin
--- local pid = vim.fn.getpid()
--- local omnisharp_bin = "/home/enrique/personal/omnisharp/OmniSharp"
---
--- local omni_config = {
---   handlers = {
---     ["textDocument/definition"] = require('omnisharp_extended').handler,
---   },
---   cmd = { omnisharp_bin, '--languageserver' , '--hostPID', tostring(pid) },
---   -- rest of your settings
--- }
---
--- require'lspconfig'.omnisharp.setup(omni_config)
---
---
--- vim.api.nvim_set_keymap('n', '<leader>od', '<cmd>lua require("omnisharp_extended").telescope_lsp_definitions()<cr>', {noremap = true})
---
---
--- local ok, godot = pcall(require, "godot")
--- if not ok then
---     return
--- end
---
--- -- default config
--- local godot_config = {
---     -- bin = "godot",
---     -- gui = {
---     --     console_config = @config for vim.api.nvim_open_win
---     -- },
--- }
---
--- godot.setup(godot_config)
---
--- local function map(m, k, v)
---     vim.keymap.set(m, k, v, { silent = true })
--- end
---
--- map("n", "<leader>qr", godot.debugger.debug)
--- map("n", "<leader>qd", godot.debugger.debug_at_cursor)
--- map("n", "<leader>qq", godot.debugger.quit)
--- map("n", "<leader>qc", godot.debugger.continue)
--- map("n", "<leader>qs", godot.debugger.step)
---
 
 function SetDiagnosticsToQuickfix()
   local bufnr = vim.api.nvim_get_current_buf()
@@ -380,4 +341,3 @@ lspconfig.ocamllsp.setup({
         return lspconfig.util.root_pattern("_opam", "dune", ".merlin")(fname) or vim.fn.getcwd()
     end,
 })
-
