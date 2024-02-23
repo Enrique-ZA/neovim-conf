@@ -36,7 +36,7 @@ Redo - <C-y>
 Undo - <C-z>
 Home - <A-a>
 End - <A-f>
-Left, Up, Down, Right - j, k, l, ; (for qwerty default hand position)
+Left, Up, Down, Right - j, k, l, ; (qwerty default hand position)
 Select all - <C-a>
 Copy to clipboard - <C-d>
 Insert empty line below - <A-l>
@@ -48,6 +48,10 @@ Perform macro - <C-f>
 Go to definition - gd
 Variable description - <leader>J
 Previous file - <A-e>
+Comment/Uncomment - gc
+Telescope - <leader>ff
+Harpoon Window Toggle - <A-y>
+Harpoon Add - <leader>hh
 ```
 
 * MIT LICENSE:
