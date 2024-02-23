@@ -33,7 +33,7 @@ Save - Control+s
 Save and Quit - Control+x
 Redo - Control+y
 Undo - Control+z
-Left, Up, Down, Right - j, k, l, ; (for qwerty defualt hand position)
+Left, Up, Down, Right - j, k, l, ; (for qwerty default hand position)
 Select all - Control+a
 Copy to clipboard - Control+d
 Insert empty line below - Alt+l
