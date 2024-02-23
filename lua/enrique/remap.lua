@@ -105,11 +105,11 @@ vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>dd", vim.cmd.Ex) -- explorer
 vim.keymap.set({"n","v"}, "<C-s>", '<Esc>:Prettier<CR><Esc>:w<CR>') -- save
 vim.api.nvim_set_keymap('i', '<C-s>', '<Esc>:Prettier<CR><Esc>:w<CR>', {noremap = true}) -- save and escape
-vim.keymap.set("i", "<S-a><S-a>", "<C-o>0") -- home
 vim.api.nvim_set_keymap('n', '<C-x>', ':wq!<CR>', {noremap = false}) -- save and exit
 vim.api.nvim_set_keymap('i', '<C-x>', '<Esc>:wq!<CR>', {noremap = false}) --save and exit
 vim.api.nvim_set_keymap('v', '<C-x>', ':wq!<CR>', {noremap = false}) --save and exit
 vim.keymap.set("i", "<A-f>", "<C-o>$") -- end
+vim.keymap.set("i", "<A-a>", "<C-o>0") -- home
 vim.keymap.set("n", "<A-a>", "<Home>") -- home
 vim.keymap.set("n", "<A-f>", "<End>") -- end
 vim.keymap.set("n", "<C-z>", "u") -- undo
