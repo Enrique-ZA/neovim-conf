@@ -6,11 +6,15 @@
        end)
     in the remap.lua file
 2.  Uses Prettier: npm i -g prettier
-3.  Uses packer:
-    ```bash git clone --depth 1 https://github.com/wbthomason/packer.nvim\
+```
+```3.  Uses packer:```
+    ```bash
+    git clone --depth 1 https://github.com/wbthomason/packer.nvim\
     ~/.local/share/nvim/site/pack/packer/start/packer.nvim
     cd ~/.local/share/nvim/site/pack/packer/start/packer.nvim
-    git checkout 1d0cf98a561f7fd654c970c49f917d74fafe1530```
+    git checkout 1d0cf98a561f7fd654c970c49f917d74fafe1530
+    ```
+```
 4.  Clone the repository and put the files and folders inside ~/.config/nvim/
 5.  nvim ~/.config/nvim/lua/enrique/set.lua 
 6.  Type :so and hit enter key.
