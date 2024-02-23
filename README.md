@@ -1,4 +1,4 @@
-* Installation (linux):
+* Installation (Linux):
 ```
 1.  Uses ripgrep: can be disabled by commenting out
        vim.keymap.set('n', '<leader>fs', function()
