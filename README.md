@@ -1,3 +1,4 @@
+* Runs Neovim v0.9.1
 * Installation (Linux):
 ```
 1.  Install ripgrep
