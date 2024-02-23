@@ -162,8 +162,7 @@ return require('packer').startup(function(use)
 
     use({
         'danymat/neogen',
-        commit = 'cb1f384df804c1bf729332c4f728253fe17962d4',
-        tag = '*'
+        commit = 'cb1f384df804c1bf729332c4f728253fe17962d4'
     })
 
     use({
