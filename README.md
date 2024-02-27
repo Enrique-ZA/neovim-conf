@@ -24,6 +24,7 @@ git checkout 1d0cf98a561f7fd654c970c49f917d74fafe1530
 12. nvim ~/.config/nvim/lua/enrique/set.lua 
 13. Type :so and hit enter key.
 14. Exit nvim
+15. Do a final :so and :PackerSync in ~/.config/nvim/lua/enrique/packer.lua
 15. Now you are all set!
 ```
 
